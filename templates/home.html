@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for post in blog_posts %} <!-- Variable derivada de views.py-->
+<div class="post-entry">
+  <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+  <p>{{ post.body }}</p>
+  <!-- Si el post tiene imagen, la muestra-->
+  {% if post.img %}
+    <img src="{{ post.img.url }}" alt="imagen">
+  {% endif %}
+</div>
+{% endfor %} {% endblock content %}

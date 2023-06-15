@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-entry">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+    <br>
+    <!--aqui habia que ponerle .url a la variable de la imagen para que tome el path base y no incluya la post.pk-->
+    {% if post.img %}
+        <img src="{{ post.img.url }}" alt="imagen">
+    {% endif %}
+    <h2>{{ post.img }}</h2> <!-- Esto es solo para verificar -->
+</div>
+
+{% endblock content %}
