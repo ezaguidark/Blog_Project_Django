@@ -2,7 +2,8 @@
 {% block content %}
 {% for post in blog_posts %} <!-- Variable derivada de views.py-->
 <div class="post-entry">
-  <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+  <!-- El parametro puede ser id o pk por alguna razon -->
+  <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
   <p>{{ post.body }}</p>
   <!-- Si el post tiene imagen, la muestra-->
   {% if post.img %}
