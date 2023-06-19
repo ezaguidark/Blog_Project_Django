@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="nav-right">
+    <a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a>
+</div>
+<div class="nav-left">
+    <a href="{% url 'post_delete' post.pk %}" >+ Delete Blog Post</a>
+</div>
 <div class="post-entry">
     <h1>{{ post.title }}</h1>
     <p>{{ post.body }}</p>
