@@ -20,7 +20,12 @@ class BlogCreateView(CreateView):
     model = Post
     template_name = 'post_new.html'
     # Los parametros en fields deben tener los mismos nombres que en Models.py
-    fields = ['title', 'author', 'body', 'img'] 
+    fields = ['title', 'body', 'img']
+
+    # Este metodo hace que "author" sea igual al request.user por defecto
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(BlogCreateView, self).form_valid(form)
 
 class BlogUpdateView(UpdateView):
     model = Post

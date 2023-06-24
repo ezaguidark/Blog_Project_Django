@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% if user.is_authenticated and user == post.author %}
     <h1>Edit Post</h1>
-<form action="" method="post" enctype='multipart/form-data'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
-</form>
+    <form action="" method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+{% else %}
+    <p>You do not have permission to view this page</p>
+    <h1>XD</h1>
+{% endif %}
 
 {% endblock content %}

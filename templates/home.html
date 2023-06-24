@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+
+{% if user.is_authenticated %}
+  <a href="{% url 'post_new' %}">+ New Blog Post </a>
+{% else %}
+  <p>Only Registered Users Can Make New Post!</p>
+{% endif %}
+
 {% for post in blog_posts %} <!-- Variable derivada de views.py-->
 <div class="post-entry">
   <!-- El parametro puede ser id o pk por alguna razon -->
