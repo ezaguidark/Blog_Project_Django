@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Log In</h1>
+{% if user.is_authenticated %}
+<h2>You Are Already Logged!</h2>
+{% else %}
+<h1>Log In</h1>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -10,4 +13,6 @@
     <br>
     <h2>You do not have an account?</h2>
     <a href="{% url 'signup' %}">Register Now!</a>
+{% endif %}
+
 {% endblock content %}
